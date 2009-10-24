@@ -1,8 +1,0 @@
-#Into page for FFXI Dynamis Linkshell Application
-
-= Introduction =
-The wiki will be used to track quick ideas and current notes until another system is implemented.
-
-
-= Details =
-Since the majority of my notes are currently in text form and it's late I'll just make a notes page and link to it here.
