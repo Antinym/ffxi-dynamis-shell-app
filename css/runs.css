@@ -1,0 +1,75 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * General rankings setup
+ */
+#rankingsTable {
+	font-size: 10px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * rankingsTables display
+ */
+table.rankingss {
+	margin: 0 auto;
+	width: 100%;
+	clear: both;
+}
+
+table.rankings thead th {
+	padding: 3px 18px 3px 10px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+	cursor: pointer;
+	* cursor: hand;
+}
+
+table.rankings thead th {
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+table.rankings tfoot th {
+	padding: 3px 10px;
+	border-top: 1px solid black;
+	font-weight: bold;
+}
+
+table.rankings tr.heading2 td {
+	border-bottom: 1px solid #aaa;
+}
+
+table.rankings td {
+	padding: 2px 2px;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+}
+
+table.rankings td.center {
+	text-align: center;
+}
+
+table.rankings td.nowrap {
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Sorting classes
+ */
+ 
+.pointing {
+	color: #000;
+}
+
+.wonthisrun {
+  color: #333;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
+.wonpastrun {
+	background-color: #aa0;
+	border-top: 1px dotted yellow;
+	border-bottom: 1px dottes yellow;
+}
