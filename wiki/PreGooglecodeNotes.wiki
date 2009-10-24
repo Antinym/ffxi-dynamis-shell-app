@@ -1,0 +1,61 @@
+#labels Featured,Phase-Requirements,Phase-Design
+{{{
+=====> ISSUES <======
+
+FIXED #) properly listing the alts in the points page 
+FIXED #) status && points on the index page are based off most recent run and needs to be rewritten to base off selected run
+FIXED #) *used onclick() to make it work* change the checkboxes into buttons so they will send the correct value when onblur
+
+#) add the darken rows if no values code (php for initial class setting and javascript for when it's changed)
+--> write a javascript function that runs when the click function runs, checks all fields for any value and changes to the default class for that member
+--> or could just change it based on the early/megaboss columns
+
+*) code the drop ranking table
+
+*) code the money system: db tables, drop input, sales update input, funds list
+--> each sales transaction type will need: time/date stamp, parent run, type(coin,ore,etc), quantity, sell price, (buyer ?)
+--> recode the afterboss system to only use a single point at the end of the run.  This should make it compatible with the main attendance page.
+--> update the code to add shared accounts to the same row
+--> write a js function to change the visible row classes when the 0 payouts are hidden
+
+COMPLETE --> code a function that automatically creates a month selector with the runs in that month in an array
+
+*) shadowbox loads when a username is clicked on that lists that person's jobs, run history, drops, points etc.
+*---> can even add left/right arrows to cycle through
+
+*) adjust the rules so that restricted are excused for missing outlands if they dont have access
+--> have to figure out a way to track who has access ; ;
+
+*) update the get_members_drops to work with $this->run_id
+
+*) add a drop down list for members with multiple characters on the same account (ie nyn) to select which account is being used.
+
+*) Add new member function
+
+*) Deceased members page that can be used to hide members from all other pages because they quit or such
+
+*) Add a left column that lists membername, points
+
+functions:
+- get member points
+
+
+pages:
+#) export points
+
+#) sort by points ranking
+
+#) input run
+
+#) input attendance
+
+list all members with total attendance points
+> search member_id and total early points and ab points
+>>sum the points
+>>>get the sum of the points spent on items
+>>>> get the difference of points between
+
+
+#) input run drops 
+
+}}}
