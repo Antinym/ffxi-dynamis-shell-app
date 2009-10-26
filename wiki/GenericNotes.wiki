@@ -1,0 +1,7 @@
+#labels Featured,Phase-Deploy,Phase-Design
+=MySQL=
+==Create Database Structure==
+*This is the command used to generate the database structure without the data
+{{{
+mysqldump -d -hkaimac.ath.cx -uroot -p timeless > ./timeless_create.sql
+}}}
