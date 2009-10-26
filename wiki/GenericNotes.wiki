@@ -1,7 +1,14 @@
 #labels Featured,Phase-Deploy,Phase-Design
 =MySQL=
 ==Create Database Structure==
-*This is the command used to generate the database structure without the data
+*This is the command used to generate the database structure without the data*
 {{{
 mysqldump -d -hkaimac.ath.cx -uroot -p timeless > ./timeless_create.sql
+}}}
+
+=SVN=
+==Trunk Checkout==
+*This is the command used to check out the trunk to the current directory*
+{{{
+svn checkout https://ffxi-dynamis-shell-app.googlecode.com/svn/trunk/ ./ --username {myaccounthere}
 }}}
