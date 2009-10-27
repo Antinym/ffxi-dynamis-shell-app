@@ -24,7 +24,7 @@ switch ($job)
 	 * case 4: loads a payouts table
 	 * case 5: generates the rank table
 	 */
-	case 1:
+	case 1: //--> case 1: loads the run select drop-down list
 		$setRuns->get_runs();
 		//var_dump($setRuns->runs_list);die();
 		$content = "		<div>
@@ -42,7 +42,7 @@ switch ($job)
 		echo $content;
 		break;
 		
-	case 2:
+	case 2: //--> case 2: loads the table for the run selected
 		$setRuns->get_members($run_id);
 		
 		$content .= 
@@ -119,10 +119,10 @@ foreach($setRuns->members_list as $key=>$memberinfo){
 			</script>";
 
 			
-		//print $content;
+		print $content;
 		break;
 		
-	case 3:
+	case 3: //--> case 3: updates the database for changed values
 		$itemArray = explode("_",$item_id);
 		$member_id = $itemArray[1];
 		$item_type = $itemArray[0];
@@ -175,11 +175,15 @@ foreach($setRuns->members_list as $key=>$memberinfo){
 			$values = "'".$member_id."', '".$run_id."', '".$item_value."')";
 			$query  = $insert.$values;
 		}
-		//$setRuns->query($query); // disabled for the moment until done working on this page;
-		//print $query;
+		
+		// ALLOWUPDATES has to be set to yes to write to the db
+		if( $setRuns->ALLOWUPDATES == 'yes' ) 
+		{
+			$setRuns->query($query); 
+		}
 		break;
 		
-	case 4:
+	case 4: //--> case 4: loads a payouts table
 		$setRuns->get_payout_months();
 		$setRuns->get_payout_members();
 		$setRuns->set_payout_monthly_totals();
@@ -305,7 +309,7 @@ foreach($setRuns->members_list as $key=>$memberinfo){
 		print $content;		
 		break;
 		
-	case 5:
+	case 5: //--> case 5: generates the rank table
 		 // generates the rank lists --> might use a function that is called in each cell
 		$setRuns->get_items($setRuns->zone_id); // generate the item_list
 		$setRuns->get_members($setRuns->run_id); // generates a list of members and their total points
