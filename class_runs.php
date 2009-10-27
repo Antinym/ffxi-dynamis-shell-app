@@ -12,6 +12,7 @@ class runs extends connection
 		public $total_month_points = '';
 		public $run_id = '';
 		public $zone_id = '';
+		public $ALLOWUPDATES = 'yes';
 		
 		
 		/**
