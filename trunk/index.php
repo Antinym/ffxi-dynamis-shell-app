@@ -25,6 +25,7 @@
     <div id="lotRankings"></div>
     <br />
 <div id="container">
+<div id="ErrorCodes"></div>
 <div id="demo">
     <div id="MemberList"></div>
 		<br />
