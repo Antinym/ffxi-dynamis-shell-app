@@ -144,6 +144,7 @@ foreach($setRuns->members_list as $key=>$memberinfo){
 				
 			case "flonetier":
 				$field = "fl_one_tier";
+				$item_value = ( !$item_value )? '50' : $item_value;
 				break;
 				
 			case "fltwo":
@@ -152,6 +153,7 @@ foreach($setRuns->members_list as $key=>$memberinfo){
 				
 			case "fltwotier":
 				$field = "fl_two_tier";
+				$item_value = ( !$item_value )? '50' : $item_value;
 				break;
 				
 			default:
