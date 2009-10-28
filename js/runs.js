@@ -92,6 +92,6 @@ function sendChanges(item_id, item, run_id){
 		}
 	}
 	$.get('ajax/ajax_runs.php', {j: 3, runid: run_id, itemid: item_id, itemvalue: item_value}, function(data){
-		$("div#lotRankings").html(data);
+		$("div#ErrorCodes").html(data);
 	});
 };
