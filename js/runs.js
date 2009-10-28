@@ -25,7 +25,16 @@ function getMemberList(){
 			sendChanges($(this).attr("id"), this, run_id);
  		});
  	});
- 	$.get('ajax/ajax_runs.php', {j: 5, runid: run_id}, function(data){
+ 	getRankingsTable(run_id);
+	} else {
+		$('#MemberList').html('');
+	 	$("#runLoadingImg").attr("src", "");
+	}
+}; // retrieving a table of members for this run
+
+function getRankingsTable(run_id)
+{
+	$.get('ajax/ajax_runs.php', {j: 5, runid: run_id}, function(data){
  		$('#lotRankings').html(data);
  		//$("dt:first-child:not[text-decoration='line-through']").css("font-weight","bold");
  		$("dt").click(function () {
@@ -40,11 +49,7 @@ function getMemberList(){
  			}
  		});
  	});
-	} else {
-		$('#MemberList').html('');
-	 	$("#runLoadingImg").attr("src", "");
-	}
-}; // retrieving a table of members for this run
+}; 
 
 // takes the checkbox id and returns a value to send to the update script
 function checkbox(input_id)
@@ -94,4 +99,5 @@ function sendChanges(item_id, item, run_id){
 	$.get('ajax/ajax_runs.php', {j: 3, runid: run_id, itemid: item_id, itemvalue: item_value}, function(data){
 		$("div#ErrorCodes").html(data);
 	});
+	getRankingsTable(run_id);
 };
