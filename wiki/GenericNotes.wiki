@@ -12,3 +12,8 @@ mysqldump -d -hkaimac.ath.cx -uroot -p timeless > ./timeless_create.sql
 {{{
 svn checkout https://ffxi-dynamis-shell-app.googlecode.com/svn/trunk/ ./ --username {myaccounthere}
 }}}
+
+=Firebug=
+==Console Functions==
+*This is a link to the Firebug console functions*<br />
+http://getfirebug.com/console.html
