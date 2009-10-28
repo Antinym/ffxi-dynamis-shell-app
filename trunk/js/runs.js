@@ -88,7 +88,7 @@ function sendChanges(item_id, item, run_id){
 		
 		if ( item_value == "default" )
 		{
-			item_value = '0'; 
+			item_value = '50'; 
 		}
 	}
 	$.get('ajax/ajax_runs.php', {j: 3, runid: run_id, itemid: item_id, itemvalue: item_value}, function(data){
