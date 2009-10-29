@@ -25,27 +25,6 @@ function eleId(id){
 	 	$("#runLoadingImg").attr("src", "");
 	}}; 
  
- function sendChanges(item_id, item, run_id){
- 	var item_value = '';
- 	if ( $(item).is( ":checkbox" ) )
- 	{
- 		item_value = checkbox(item_id);
- 		//alert("item value: " + item_value + "< >" + item_id);
- 	} 
- 	else if ( $(item).is("select") )
- 	{
- 		item_value = $('select#' + item_id).val();
- 		
- 		if ( item_value == "default" )
- 		{
- 			item_value = '0'; 
- 		}
- 	}
- 	$.get('ajax/ajax_runs.php', {j: 3, runid: run_id, itemid: item_id, itemvalue: item_value}, function(data){
- 		$("div#lotRankings").html(data);
- 	});
- };
- 
  function hideEmptyRows()
  {
  	 $("tr.gradeU").toggle();
