@@ -11,6 +11,7 @@ function eleId(id){
 	return id;
 }
 
+// when a run is selected this is called to get the table and member data
 function getMemberList(){
 	$("#runLoadingImg").attr("src", "images/loading.gif");
 	var run_id = document.getElementById("run").value;
@@ -36,17 +37,22 @@ function getRankingsTable(run_id)
 {
 	$.get('ajax/ajax_runs.php', {j: 5, runid: run_id}, function(data){
  		$('#lotRankings').html(data);
- 		//$("dt:first-child:not[text-decoration='line-through']").css("font-weight","bold");
- 		$("dt").click(function () {
- 			if ( $(this).css("text-decoration") == "line-through" )
+ 		$action = 0;
+ 		$drop_info = $(this).attr("id");
+ 		$("li").click(function () {
+			$(this).attr("disabled","disabled"); //disable button until after the callback executes
+ 			$drop_info = $(this).attr("id");
+ 			$(this).toggleClass('wonthisrun');
+ 			if ( $(this).hasClass('wonthisrun') )
  			{
- 				$(this).css({"text-decoration":"","font-weight":"","font-size":""})
- 				console.log(this);
+ 				$action = 1;
  			}
- 			else {
- 				$(this).css({"text-decoration":"line-through","font-weight":"bold","font-size":"10px"})
- 				console.log(this);
+/* 			$.get('ajax/ajax_runs.php', {j: 6, runid: run_id, action: $action, dropinfo: $drop_info}, function(data){
+ 				$(item).removeAttr('disabled'); // re-enables the button
+				//getRankingsTable(run_id); // not sure if this is needed
  			}
+*/ 			console.log('action = ' + $action);
+ 			console.log('drop info: ' + $drop_info);
  		});
  	});
 }; 
@@ -76,16 +82,20 @@ function checkbox(input_id)
 	return cb_value;
 }
 
+// updates drops table when a member's name is clicked on
 function dropWon(item_id, member_id){
 	
 };
 
+// uses jquery to send an xmlhttprequest to update the db on individual cell changes: points/lot items/tiers 
 function sendChanges(item_id, item, run_id){
 	var item_value = '';
+	var $item_id_array = item_id.split("_");
+	$(item).attr("disabled","disabled"); //disable button until after the callback executes
 	if ( $(item).is( ":checkbox" ) )
 	{
 		item_value = checkbox(item_id);
-		//alert("item value: " + item_value + "< >" + item_id);
+		//console.log("item value: " + item_value + "< >" + item_id);
 	} 
 	else if ( $(item).is("select") )
 	{
@@ -93,11 +103,13 @@ function sendChanges(item_id, item, run_id){
 		
 		if ( item_value == "default" )
 		{
-			item_value = '50'; 
+			item_value = ( $item_id_array[0] == "comment" )? '0' : '50'; 
+			console.log(item_value);
 		}
 	}
 	$.get('ajax/ajax_runs.php', {j: 3, runid: run_id, itemid: item_id, itemvalue: item_value}, function(data){
 		$("div#ErrorCodes").html(data);
+		$(item).removeAttr('disabled'); // re-enables the button
+		getRankingsTable(run_id);
 	});
-	getRankingsTable(run_id);
 };
