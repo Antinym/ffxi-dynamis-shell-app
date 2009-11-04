@@ -54,21 +54,57 @@ table.rankings td.nowrap {
   white-space: nowrap;
 }
 
+table.rankings ul {
+	list-style: none;
+	padding: 0px;
+}
+
+table.rankings li {
+	color: black;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Sorting classes
  */
  
+.tier50 {
+
+}
+ 
+.tier55 {
+
+}
+ 
+.tier60 {
+
+}
+ 
+.tier65 {
+
+}
+ 
+.tier70 {
+
+}
+ 
+.tier75 {
+
+}
+
+ 
 .pointing {
 	color: #000;
+	font-weight: bolder;
 }
 
 .wonthisrun {
-  color: #333;
+  color: #000000;
   text-decoration: line-through;
   font-weight: normal;
+  font-size: 10px;
 }
-
+/* text-decoration":"line-through","font-weight":"bold","font-size":"10px */
 .wonpastrun {
 	background-color: #aa0;
 	border-top: 1px dotted yellow;
