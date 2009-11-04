@@ -357,7 +357,7 @@ class runs extends connection
 			$order = " ORDER BY name";
 			$query = $select.$from.$and.$order;
 			$results = $this->query($query);
-			$content .= "<dl id=\"dl_".$item_id."\">\n";
+			$content .= "<ul id=\"ul_".$item_id."\">\n";
 			
 			// at this point we have an unsorted list of members lotting this specific item
 			// the next step is to sort the members into lotting tiers, group them by tiers,
@@ -407,10 +407,12 @@ class runs extends connection
 						if ( $dropswon[$comm['member_id']] )
 						{
 							$class_title = ( $dropswon[$comm['member_id']] == (int)$this->run_id )?
-															 " class=\"wonthisrun\"":
-															 " class=\"wonpastrun\" title=\"Won on run ".$dropswon[$comm['member_id']]."\"";
+															 " class=\"pointing wonthisrun\"":
+															 " class=\"pointing wonpastrun\" title=\"Won on run ".$dropswon[$comm['member_id']]."\"";
+						} else {
+							$class_title = " class=\"pointing\"";
 						}
-						$content .= "<dt id=\"dt_".$item_id."_".$comm['member_id']."\"".$class_title.">".$comm['name']."</dt>";
+						$content .= "<li id=\"li_".$item_id."_".$comm['member_id']."\"".$class_title.">".$comm['name']."</dt>";
 					}
 					foreach ( $freelot as $comm )
 					{
@@ -421,11 +423,11 @@ class runs extends connection
 															" class=\"wonthisrun tier".$comm['tier']."\"":
 															" class=\"wonpastrun tier".$comm['tier']."\" title=\"Won on run ".$dropswon[$comm['member_id']]."\"";							
 						}
-						$content .= "<dt id=\"dt_".$item_id."_".$comm['member_id']."\"".$class_title.">".$comm['name']."</dt>";
+						$content .= "<li id=\"li_".$item_id."_".$comm['member_id']."\"".$class_title.">".$comm['name']."</dt>";
 					}
 				}
 			}
-			$content .= "</dl>";
+			$content .= "</ul>";
 			
 			return $content;
 //var_dump($this->item_list);die();
